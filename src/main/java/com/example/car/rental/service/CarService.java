@@ -11,9 +11,9 @@ public interface CarService {
 
     Optional<Car> retrieveCarById(Long id);
 
-    List<Car> retrieveAllSongs();
+    List<Car> retrieveAllCars();
 
-    Car updateSong(Car car);
+    Car updateCar(Car car);
 
-    void deleteSongById(Long id);
+    void deleteCarById(Long id);
 }

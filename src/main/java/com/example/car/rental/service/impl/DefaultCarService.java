@@ -30,17 +30,17 @@ public class DefaultCarService implements CarService {
     }
 
     @Override
-    public List<Car> retrieveAllSongs() {
+    public List<Car> retrieveAllCars() {
         return repository.getAll();
     }
 
     @Override
-    public Car updateSong(Car car) {
+    public Car updateCar(Car car) {
         return repository.update(car);
     }
 
     @Override
-    public void deleteSongById(Long id) {
+    public void deleteCarById(Long id) {
         repository.deleteById(id);
     }
 }
