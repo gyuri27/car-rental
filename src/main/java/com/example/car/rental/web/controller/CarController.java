@@ -5,7 +5,8 @@ import java.util.Optional;
 
 import com.example.car.rental.data.model.Car;
 import com.example.car.rental.service.CarService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,15 +16,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequiredArgsConstructor
 @RequestMapping("/car-rental")
+@Slf4j
 public class CarController {
 
     private final CarService carService;
-
-    @Autowired
-    public CarController(CarService carService) {
-        this.carService = carService;
-    }
 
     @GetMapping("/{id}")
     public String getCarByid(Model model, @PathVariable Long id) {
@@ -32,12 +30,12 @@ public class CarController {
                 (
                         car -> {
                             model.addAttribute("car",car);
-                            return "car-rental/edit";
+                            return "edit";
                         }
                 ).orElseGet(
                 () -> {
                     model.addAttribute("requestUri", "car-rental/" + id);
-                    return "car-rental/notFound";
+                    return "notFound";
                 }
         );
     }
@@ -45,8 +43,8 @@ public class CarController {
     @GetMapping
     public String getAllCar(Model model) {
         List<Car> allCar = carService.retrieveAllCars();
-        model.addAttribute("car",allCar);
-        return "car-rental/list";
+        model.addAttribute("cars",allCar);
+        return "list";
     }
 
     @GetMapping("/create")
@@ -59,21 +57,21 @@ public class CarController {
     {
         Car newCar = carService.createCar_rental(car);
         model.addAttribute("car",newCar);
-        return "car-rental/edit";
+        return "edit";
     }
 
     @PostMapping(value = "/update", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     public String updateSong(Model model, Car car) {
         Car updatedCar = carService.updateCar(car);
-        model.addAttribute("song", updatedCar);
-        return "car-rental/edit";
+        model.addAttribute("car", updatedCar);
+        return "edit";
     }
 
     @GetMapping("/{id}/delete")
     public String deleteSongById(Model model, @PathVariable Long id) {
         carService.deleteCarById(id);
         List<Car> allCars = carService.retrieveAllCars();
-        model.addAttribute("songs", allCars);
-        return "music-catalog/list";
+        model.addAttribute("cars", allCars);
+        return "list";
     }
 }

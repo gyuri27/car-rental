@@ -1,0 +1,61 @@
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org/"
+      xmlns:sec="http://www.w3.org/1999/xhtml%22%3E">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Kocsik listája</title>
+
+    <link rel="stylesheet"
+          th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}"/>
+    <script th:src="@{/webjars/bootstrap/5.1.3/js/bootstrap.min.js}"></script>
+</head>
+<body>
+
+<div class="container">
+
+    <h3 class="pt-5">Kocsik listája</h3>
+
+
+    <table class="table table-striped pt-5">
+        <caption>Kocsik listája</caption>
+        <thread>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Kocsi_tipus</th>
+                <th scope="col">Kialakítás</th>
+                <th scope="col">Fő</th>
+                <th scope="col">Ajtók_száma</th>
+                <th scope="col">váltó_tipus</th>
+                <th scope="col">Bőrödnök_száma</th>
+                <th scope="col">üzemanyag</th>
+            </tr>
+        </thread>
+        <tbody>
+        <tr th:each="car: ${cars}">
+            <th scope="row"
+                th:text="${car.ID}"></th>
+            <td th:text="${car.car_name}"></td>
+            <td th:text="${car.car_body}"></td>
+            <td th:text="${car.person}"></td>
+            <td th:text="${car.door}"></td>
+            <td th:text="${car.gearbox}"></td>
+            <td th:text="${car.bag}"></td>
+            <td th:text="${car.fuel}"></td>
+            <td>
+                <a th:href="@{'/car-rental/' + ${car.id}}"
+                   type="button"
+                   class="btn btn-warning">Szerkesztés</a>
+                <a th:href="@{'/car-rental/' + ${car.id} + '/delete'}"
+                   type="button"
+                   class="btn btn-danger">Törlés</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

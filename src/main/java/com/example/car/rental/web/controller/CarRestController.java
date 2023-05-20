@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import com.example.car.rental.data.model.Car;
 import com.example.car.rental.service.CarService;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,14 +18,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1/car")
+@RequiredArgsConstructor
+@RequestMapping("/api/v1/car-rental")
+@Log4j2
 public class CarRestController {
 
     private final CarService carService;
-
-    public CarRestController(CarService carService) {
-        this.carService = carService;
-    }
 
 
     @GetMapping("/{id}")
