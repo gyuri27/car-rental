@@ -18,6 +18,9 @@
 
     <h3 class="pt-5">Kocsik listája</h3>
 
+    <a th:href="@{'/car-rental/create'}"
+       type="button"
+       class="btn">Új hozzáadása</a>
 
     <table class="table table-striped pt-5">
         <caption>Kocsik listája</caption>
@@ -45,10 +48,10 @@
             <td th:text="${car.bag}"></td>
             <td th:text="${car.fuel}"></td>
             <td>
-                <a th:href="@{'/car-rental/' + ${car.id}}"
+                <a th:href="@{'/car-rental/' + ${car.ID}}"
                    type="button"
                    class="btn btn-warning">Szerkesztés</a>
-                <a th:href="@{'/car-rental/' + ${car.id} + '/delete'}"
+                <a th:href="@{'/car-rental/' + ${car.ID} + '/delete'}"
                    type="button"
                    class="btn btn-danger">Törlés</a>
             </td>

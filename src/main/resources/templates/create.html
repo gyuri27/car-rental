@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kocsi szerkesztése</title>
+    <title>Kocsi létrehozás</title>
 </head>
 <body>
 <div class="container">
 
-    <h3 class="pt-5">Kocsi szerkesztése</h3>
+    <h3 class="pt-5">Kocsi létrehozás</h3>
 
     <div class="row">
         <div class="col-md-4 mt-5">
@@ -20,25 +20,16 @@
                     <label for="name">Kocsi létrehozás</label>
                 </div>
                 <div class="form-group">
-                    <label for="ID">ID</label>
-                    <input type="text"
-                           id="ID"
-                           name="ID"
-                           readonly
-                           class="form-control"
-                           th:value="${car.ID}"/>
-                </div>
-                <div class="form-group">
                     <label for="car_name">Kocsi tipus</label>
                     <input type="text"
                            id="car_name"
-                           th:value="car_name"
+                           th:name="car_name"
                            class="form-control"/>
                 </div>
                 <div class="form-group">
                     <label for="car_body">Karosszéria</label>
                     <input id="car_body"
-                           th:value="car_body"
+                           th:name="car_body"
                            class="form-control"
                            list="car_body_list" />
                     <datalist id = "car_body_list">
@@ -55,20 +46,20 @@
                     <label for="person">Fő</label>
                     <input type="text"
                            id="person"
-                           th:value="person"
+                           th:name="person"
                            class="form-control"/>
                 </div>
                 <div class="form-group">
                     <label for="door">Ajtók száma</label>
                     <input type="text"
                            id="door"
-                           th:value="door"
+                           th:name="door"
                            class="form-control"/>
                 </div>
                 <div class="form-group">
                     <label for="gearbox">Váltó tipus</label>
                     <input id="gearbox"
-                           th:value="gearbox"
+                           th:name="gearbox"
                            class="form-control"
                            list="gearbox_list"/>
                     <datalist id = "gearbox_list">
@@ -81,13 +72,13 @@
                     <label for="bag">Csomag szám</label>
                     <input type="text"
                            id="bag"
-                           th:value="bag"
+                           th:name="bag"
                            class="form-control"/>
                 </div>
                 <div class="form-group">
                     <label for="fuel">Benzin tipus</label>
                     <input id="fuel"
-                           th:value="fuel"
+                           th:name="fuel"
                            class="form-control"
                            list="fuel_list"/>
                     <datalist id = "fuel_list">
@@ -106,6 +97,7 @@
             </form>
         </div>
     </div>
+
 </div>
 </body>
 </html>

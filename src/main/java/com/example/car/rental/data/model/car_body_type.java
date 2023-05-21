@@ -7,6 +7,5 @@ public enum car_body_type {
     Hatchback,
     Coupe,
     Cabrio,
-    Pickup,
-    Suv
+    Pickup
 }

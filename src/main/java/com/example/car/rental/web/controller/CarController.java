@@ -23,9 +23,9 @@ public class CarController {
 
     private final CarService carService;
 
-    @GetMapping("/{id}")
-    public String getCarByid(Model model, @PathVariable Long id) {
-        Optional<Car> optionalCar = carService.retrieveCarById(id);
+    @GetMapping("/{ID}")
+    public String getCarByid(Model model, @PathVariable Long ID) {
+        Optional<Car> optionalCar = carService.retrieveCarById(ID);
         return optionalCar.map
                 (
                         car -> {
@@ -34,7 +34,7 @@ public class CarController {
                         }
                 ).orElseGet(
                 () -> {
-                    model.addAttribute("requestUri", "car-rental/" + id);
+                    model.addAttribute("requestUri", "car-rental/" + ID);
                     return "notFound";
                 }
         );
@@ -49,7 +49,7 @@ public class CarController {
 
     @GetMapping("/create")
     public String createCar() {
-        return "car-rental/create";
+        return "create";
     }
 
     @PostMapping("/create")
@@ -67,9 +67,9 @@ public class CarController {
         return "edit";
     }
 
-    @GetMapping("/{id}/delete")
-    public String deleteSongById(Model model, @PathVariable Long id) {
-        carService.deleteCarById(id);
+    @GetMapping("/{ID}/delete")
+    public String deleteSongById(Model model, @PathVariable Long ID) {
+        carService.deleteCarById(ID);
         List<Car> allCars = carService.retrieveAllCars();
         model.addAttribute("cars", allCars);
         return "list";
