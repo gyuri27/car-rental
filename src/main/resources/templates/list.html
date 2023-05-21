@@ -34,6 +34,7 @@
                 <th scope="col">váltó_tipus</th>
                 <th scope="col">Bőrödnök_száma</th>
                 <th scope="col">üzemanyag</th>
+                <th scope="col">Kikölcsönzött</th>
             </tr>
         </thread>
         <tbody>
@@ -47,6 +48,7 @@
             <td th:text="${car.gearbox}"></td>
             <td th:text="${car.bag}"></td>
             <td th:text="${car.fuel}"></td>
+            <td th:text="${car.rental_status}"></td>
             <td>
                 <a th:href="@{'/car-rental/' + ${car.ID}}"
                    type="button"

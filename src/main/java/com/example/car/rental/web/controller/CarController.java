@@ -61,14 +61,14 @@ public class CarController {
     }
 
     @PostMapping(value = "/update", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-    public String updateSong(Model model, Car car) {
+    public String updateCar(Model model, Car car) {
         Car updatedCar = carService.updateCar(car);
         model.addAttribute("car", updatedCar);
         return "edit";
     }
 
     @GetMapping("/{ID}/delete")
-    public String deleteSongById(Model model, @PathVariable Long ID) {
+    public String deleteCarById(Model model, @PathVariable Long ID) {
         carService.deleteCarById(ID);
         List<Car> allCars = carService.retrieveAllCars();
         model.addAttribute("cars", allCars);

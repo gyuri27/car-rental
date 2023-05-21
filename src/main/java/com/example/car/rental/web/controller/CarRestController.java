@@ -26,7 +26,7 @@ public class CarRestController {
     private final CarService carService;
 
 
-    @GetMapping("/{id}")
+    @GetMapping("/{ID}")
     public ResponseEntity<Car> getCarById(@PathVariable Long id) {
         Optional<Car> car = carService.retrieveCarById(id);
         return car.map(ResponseEntity::ok)

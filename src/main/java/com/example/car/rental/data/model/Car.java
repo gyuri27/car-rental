@@ -12,9 +12,10 @@ public class Car {
     private gearbox_type gearbox;
     private Long bag;
     private fuel_type fuel;
+    private String rental_status;
     
     public Car(){}
-    public Car(Long ID, String car_name, car_body_type car_body, Long person, Long door, gearbox_type gearbox, Long bag, fuel_type fuel) {
+    public Car(Long ID, String car_name, car_body_type car_body, Long person, Long door, gearbox_type gearbox, Long bag, fuel_type fuel, String rental_status) {
         this.ID = ID;
         this.car_name = car_name;
         this.car_body = car_body;
@@ -23,6 +24,7 @@ public class Car {
         this.gearbox = gearbox;
         this.bag = bag;
         this.fuel = fuel;
+        this.rental_status = rental_status;
     }
 
     public Long getID() {
@@ -89,6 +91,14 @@ public class Car {
         this.fuel = fuel;
     }
 
+    public String getRental_status() {
+        return rental_status;
+    }
+
+    public void setRental_status(String rental_status) {
+        this.rental_status = rental_status;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -109,9 +119,12 @@ public class Car {
         if (!Objects.equals(door, car.door)) {
             return false;
         }
-        
 
         if (!Objects.equals(bag, car.bag)) {
+            return false;
+        }
+
+        if (!Objects.equals(rental_status, car.rental_status)) {
             return false;
         }
         
@@ -129,6 +142,7 @@ public class Car {
         result = 31 * result + (person != null ? person.hashCode() : 0);
         result = 31 * result + (door != null ? door.hashCode() : 0);
         result = 31 * result + (bag != null ? bag.hashCode() : 0);
+        result = 31 * result + (rental_status != null ? rental_status.hashCode() : 0);
         return result;
     }
 
@@ -143,6 +157,7 @@ public class Car {
                 ", gearbox=" + gearbox +
                 ", bag=" + bag +
                 ", fuel=" + fuel +
+                ", rental_status=" + rental_status +
                 '}';
     }
 }

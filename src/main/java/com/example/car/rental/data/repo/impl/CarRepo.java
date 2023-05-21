@@ -10,9 +10,10 @@ import com.example.car.rental.data.repo.Repo;
 @org.springframework.stereotype.Repository
 public class CarRepo implements Repo<Car, Long> {
 
-    private static final Map<Long, Car> Storage = new HashMap<>();
+    public static final Map<Long, Car> Storage = new HashMap<>();
     @Override
     public Car save(Car item) {
+        System.out.println(item);
         Long id = Storage.size() + 1L;
         item.setID(id);
         Storage.put(id, item);
@@ -31,9 +32,10 @@ public class CarRepo implements Repo<Car, Long> {
 
     @Override
     public Car update(Car item) {
+        System.out.println(item);
         Long id = item.getID();
         Storage.put(id, item);
-        return null;
+        return Storage.get(id);
     }
 
     @Override

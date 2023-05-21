@@ -15,7 +15,7 @@
     <div class="row">
         <div class="col-md-4 mt-5">
             <form method="post"
-                  th:action="@{/car-rental/create}">
+                  th:action="@{/car-rental/update}">
                 <div class="form-group">
                     <label for="name">Kocsi létrehozás</label>
                 </div>
@@ -32,14 +32,16 @@
                     <label for="car_name">Kocsi tipus</label>
                     <input type="text"
                            id="car_name"
-                           th:value="car_name"
+                           name="car_name"
+                           th:value="${car.car_name}"
                            class="form-control"/>
                 </div>
                 <div class="form-group">
                     <label for="car_body">Karosszéria</label>
                     <input id="car_body"
-                           th:value="car_body"
+                           th:value="${car.car_body}"
                            class="form-control"
+                           name ="car_body"
                            list="car_body_list" />
                     <datalist id = "car_body_list">
                         <option value="SUV"/>
@@ -55,21 +57,24 @@
                     <label for="person">Fő</label>
                     <input type="text"
                            id="person"
-                           th:value="person"
+                           name="person"
+                           th:value="${car.person}"
                            class="form-control"/>
                 </div>
                 <div class="form-group">
                     <label for="door">Ajtók száma</label>
                     <input type="text"
                            id="door"
-                           th:value="door"
+                           name="door"
+                           th:value="${car.door}"
                            class="form-control"/>
                 </div>
                 <div class="form-group">
                     <label for="gearbox">Váltó tipus</label>
                     <input id="gearbox"
-                           th:value="gearbox"
+                           th:value="${car.gearbox}"
                            class="form-control"
+                           name="gearbox"
                            list="gearbox_list"/>
                     <datalist id = "gearbox_list">
                         <option value="Automatic"/>
@@ -81,14 +86,16 @@
                     <label for="bag">Csomag szám</label>
                     <input type="text"
                            id="bag"
-                           th:value="bag"
+                           name="bag"
+                           th:value="${car.bag}"
                            class="form-control"/>
                 </div>
                 <div class="form-group">
                     <label for="fuel">Benzin tipus</label>
                     <input id="fuel"
-                           th:value="fuel"
+                           th:value="${car.fuel}"
                            class="form-control"
+                           name="fuel"
                            list="fuel_list"/>
                     <datalist id = "fuel_list">
                         <option value="Petrol"/>
@@ -96,9 +103,17 @@
                         <option value="Electrical"/>
                     </datalist>
                 </div>
+                <div class="form-group">
+                    <label for="rental_status">Kikölcsözött</label>
+                    <input type="text"
+                           id="rental_status"
+                           name="rental_status"
+                           th:value="${car.rental_status}"
+                           class="form-control"/>
+                </div>
 
                 <button class="btn btn-primary pt-2"
-                        type="submit">Létrehoz
+                        type="submit">Módosít
                 </button>
                 <a th:href="@{/car-rental}"
                    class="btn btn-secondary pt-2"
