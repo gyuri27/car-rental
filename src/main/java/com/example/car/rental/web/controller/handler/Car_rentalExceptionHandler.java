@@ -12,10 +12,10 @@ import lombok.extern.slf4j.Slf4j;
 @RestControllerAdvice
 public class Car_rentalExceptionHandler extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(Exception.class)
-    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public String handleException(final Exception e) {
-        log.error("Server side problem:",e);
-        return "Szerver oldali hiba, kérem lépjen kapcsolatba az üzemeltetövel!";
-    }
+@ExceptionHandler(Exception.class)
+@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+public String handleException(final Exception e) {
+	log.error("Server side problem:", e);
+	return "Szerver oldali hiba, kérem lépjen kapcsolatba az üzemeltetövel!";
+}
 }

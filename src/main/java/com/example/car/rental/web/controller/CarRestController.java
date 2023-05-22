@@ -23,33 +23,33 @@ import org.springframework.web.bind.annotation.RestController;
 @Log4j2
 public class CarRestController {
 
-    private final CarService carService;
+private final CarService carService;
 
 
-    @GetMapping("/{ID}")
-    public ResponseEntity<Car> getCarById(@PathVariable Long id) {
-        Optional<Car> car = carService.retrieveCarById(id);
-        return car.map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.notFound().build());
-    }
+@GetMapping("/{ID}")
+public ResponseEntity<Car> getCarById(@PathVariable Long id) {
+	Optional<Car> car = carService.retrieveCarById(id);
+	return car.map(ResponseEntity::ok)
+		.orElseGet(() -> ResponseEntity.notFound().build());
+}
 
-    @GetMapping
-    public List<Car> getAllCars() {
-        return carService.retrieveAllCars();
-    }
+@GetMapping
+public List<Car> getAllCars() {
+	return carService.retrieveAllCars();
+}
 
-    @PostMapping
-    public Car createSong(@RequestBody Car car) {
-        return carService.createCar_rental(car);
-    }
+@PostMapping
+public Car createSong(@RequestBody Car car) {
+	return carService.createCar_rental(car);
+}
 
-    @PutMapping
-    public Car updateSong(@RequestBody Car car) {
-        return carService.updateCar(car);
-    }
+@PutMapping
+public Car updateSong(@RequestBody Car car) {
+	return carService.updateCar(car);
+}
 
-    @DeleteMapping("/{id}")
-    public void deleteSongById(@PathVariable Long id) {
-        carService.deleteCarById(id);
-    }
+@DeleteMapping("/{id}")
+public void deleteSongById(@PathVariable Long id) {
+	carService.deleteCarById(id);
+}
 }

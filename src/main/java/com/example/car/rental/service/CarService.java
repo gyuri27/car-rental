@@ -5,15 +5,18 @@ import java.util.Optional;
 
 import com.example.car.rental.data.model.Car;
 
+/**
+ * A service for managing cars in the car catalog.
+ */
 public interface CarService {
 
-    Car createCar_rental(Car car);
+Car createCar_rental(Car car);
 
-    Optional<Car> retrieveCarById(Long id);
+Optional<Car> retrieveCarById(Long id);
 
-    List<Car> retrieveAllCars();
+List<Car> retrieveAllCars();
 
-    Car updateCar(Car car);
+Car updateCar(Car car);
 
-    void deleteCarById(Long id);
+void deleteCarById(Long id);
 }

@@ -1,126 +1,177 @@
 <!DOCTYPE html>
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org/">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kocsi szerkesztése</title>
+    <style>
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h3 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0069d9;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: #fff;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+        .pt-2 {
+            padding-top: 8px;
+        }
+
+        .mt-5 {
+            margin-top: 40px;
+        }
+
+        .row::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .col-md-4 {
+            width: 33.33333333%;
+            float: left;
+        }
+    </style>
 </head>
+
 <body>
-<div class="container">
+    <div class="container">
 
-    <h3 class="pt-5">Kocsi szerkesztése</h3>
+        <h3 class="pt-5">Kocsi szerkesztése</h3>
 
-    <div class="row">
-        <div class="col-md-4 mt-5">
-            <form method="post"
-                  th:action="@{/car-rental/update}">
-                <div class="form-group">
-                    <label for="name">Kocsi létrehozás</label>
-                </div>
-                <div class="form-group">
-                    <label for="ID">ID</label>
-                    <input type="text"
-                           id="ID"
-                           name="ID"
-                           readonly
-                           class="form-control"
-                           th:value="${car.ID}"/>
-                </div>
-                <div class="form-group">
-                    <label for="car_name">Kocsi tipus</label>
-                    <input type="text"
-                           id="car_name"
-                           name="car_name"
-                           th:value="${car.car_name}"
-                           class="form-control"/>
-                </div>
-                <div class="form-group">
-                    <label for="car_body">Karosszéria</label>
-                    <input id="car_body"
-                           th:value="${car.car_body}"
-                           class="form-control"
-                           name ="car_body"
-                           list="car_body_list" />
-                    <datalist id = "car_body_list">
-                        <option value="SUV"/>
-                        <option value="Sedan"/>
-                        <option value="Wagon"/>
-                        <option value="Hatchback"/>
-                        <option value="Coupe"/>
-                        <option value="Cabrio"/>
-                        <option value="Pickup"/>
-                    </datalist>
-                </div>
-                <div class="form-group">
-                    <label for="person">Fő</label>
-                    <input type="text"
-                           id="person"
-                           name="person"
-                           th:value="${car.person}"
-                           class="form-control"/>
-                </div>
-                <div class="form-group">
-                    <label for="door">Ajtók száma</label>
-                    <input type="text"
-                           id="door"
-                           name="door"
-                           th:value="${car.door}"
-                           class="form-control"/>
-                </div>
-                <div class="form-group">
-                    <label for="gearbox">Váltó tipus</label>
-                    <input id="gearbox"
-                           th:value="${car.gearbox}"
-                           class="form-control"
-                           name="gearbox"
-                           list="gearbox_list"/>
-                    <datalist id = "gearbox_list">
-                        <option value="Automatic"/>
-                        <option value="Manual"/>
-                    </datalist>
+        <div class="row">
+            <div class="col-md-4 mt-5">
+                <form method="post" th:action="@{/car-rental/update}">
+                    <div class="form-group">
+                        <label for="ID">ID</label>
+                        <input type="text" id="ID" name="ID" readonly class="form-control" th:value="${car.ID}" />
+                    </div>
+                    <div class="form-group">
+                        <label for="car_name">Kocsi tipus</label>
+                        <input type="text" id="car_name" name="car_name" th:value="${car.car_name}"
+                            class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="car_body">Karosszéria</label>
+                        <input type="text" id="car_body" th:value="${car.car_body}" class="form-control" name="car_body"
+                            list="car_body_list" />
+                        <datalist id="car_body_list">
+                            <option value="SUV" />
+                            <option value="Sedan" />
+                            <option value="Wagon" />
+                            <option value="Hatchback" />
+                            <option value="Coupe" />
+                            <option value="Cabrio" />
+                            <option value="Pickup" />
+                        </datalist>
+                    </div>
+                    <div class="form-group">
+                        <label for="person">Fő</label>
+                        <input type="text" id="person" name="person" th:value="${car.person}" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="door">Ajtók száma</label>
+                        <input type="text" id="door" name="door" th:value="${car.door}" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="gearbox">Váltó tipus</label>
+                        <input type="text" id="gearbox" th:value="${car.gearbox}" class="form-control" name="gearbox"
+                            list="gearbox_list" />
+                        <datalist id="gearbox_list">
+                            <option value="Automatic" />
+                            <option value="Manual" />
+                        </datalist>
 
-                </div>
-                <div class="form-group">
-                    <label for="bag">Csomag szám</label>
-                    <input type="text"
-                           id="bag"
-                           name="bag"
-                           th:value="${car.bag}"
-                           class="form-control"/>
-                </div>
-                <div class="form-group">
-                    <label for="fuel">Benzin tipus</label>
-                    <input id="fuel"
-                           th:value="${car.fuel}"
-                           class="form-control"
-                           name="fuel"
-                           list="fuel_list"/>
-                    <datalist id = "fuel_list">
-                        <option value="Petrol"/>
-                        <option value="Diesel"/>
-                        <option value="Electrical"/>
-                    </datalist>
-                </div>
-                <div class="form-group">
-                    <label for="rental_status">Kikölcsözött</label>
-                    <input type="text"
-                           id="rental_status"
-                           name="rental_status"
-                           th:value="${car.rental_status}"
-                           class="form-control"/>
-                </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="bag">Csomag szám</label>
+                        <input type="text" id="bag" name="bag" th:value="${car.bag}" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label for="fuel">Benzin tipus</label>
+                        <input type="text" id="fuel" th:value="${car.fuel}" class="form-control" name="fuel"
+                            list="fuel_list" />
+                        <datalist id="fuel_list">
+                            <option value="Petrol" />
+                            <option value="Diesel" />
+                            <option value="Electrical" />
+                        </datalist>
+                    </div>
+                    <div class="form-group">
+                        <label for="rental_status">Kikölcsözött</label>
+                        <input type="text" id="rental_status" name="rental_status" th:value="${car.rental_status}"
+                            class="form-control" />
+                    </div>
 
-                <button class="btn btn-primary pt-2"
-                        type="submit">Módosít
-                </button>
-                <a th:href="@{/car-rental}"
-                   class="btn btn-secondary pt-2"
-                   type="submit">Vissza a listához</a>
-            </form>
+                    <button class="btn btn-primary pt-2" type="submit">Módosít
+                    </button>
+                    <a th:href="@{/car-rental}" class="btn btn-secondary pt-2" type="submit">Vissza a listához</a>
+                </form>
+            </div>
         </div>
     </div>
-</div>
 </body>
+
 </html>

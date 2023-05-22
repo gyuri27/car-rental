@@ -7,39 +7,42 @@ import java.util.Optional;
 
 import com.example.car.rental.data.model.Car;
 import com.example.car.rental.data.repo.Repo;
-@org.springframework.stereotype.Repository
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class CarRepo implements Repo<Car, Long> {
 
-    public static final Map<Long, Car> Storage = new HashMap<>();
-    @Override
-    public Car save(Car item) {
-        System.out.println(item);
-        Long id = Storage.size() + 1L;
-        item.setID(id);
-        Storage.put(id, item);
-        return Storage.get(id);
-    }
+public static final Map<Long, Car> Storage = new HashMap<>();
 
-    @Override
-    public Optional<Car> getById(Long id) {
-        return Optional.ofNullable(Storage.get(id));
-    }
+@Override
+public Car save(Car item) {
+	System.out.println(item);
+	Long id = Storage.size() + 1L;
+	item.setID(id);
+	Storage.put(id, item);
+	return Storage.get(id);
+}
 
-    @Override
-    public List<Car> getAll() {
-        return Storage.values().stream().toList();
-    }
+@Override
+public Optional<Car> getById(Long id) {
+	return Optional.ofNullable(Storage.get(id));
+}
 
-    @Override
-    public Car update(Car item) {
-        System.out.println(item);
-        Long id = item.getID();
-        Storage.put(id, item);
-        return Storage.get(id);
-    }
+@Override
+public List<Car> getAll() {
+	return Storage.values().stream().toList();
+}
 
-    @Override
-    public void deleteById(Long id) {
-        Storage.remove(id);
-    }
+@Override
+public Car update(Car item) {
+	System.out.println(item);
+	Long id = item.getID();
+	Storage.put(id, item);
+	return Storage.get(id);
+}
+
+@Override
+public void deleteById(Long id) {
+	Storage.remove(id);
+}
 }

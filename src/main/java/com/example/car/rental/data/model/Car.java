@@ -4,160 +4,162 @@ import java.util.Objects;
 
 public class Car {
 
-    private Long ID;
-    private String car_name;
-    private car_body_type car_body;
-    private Long person;
-    private Long door;
-    private gearbox_type gearbox;
-    private Long bag;
-    private fuel_type fuel;
-    private String rental_status;
-    
-    public Car(){}
-    public Car(Long ID, String car_name, car_body_type car_body, Long person, Long door, gearbox_type gearbox, Long bag, fuel_type fuel, String rental_status) {
-        this.ID = ID;
-        this.car_name = car_name;
-        this.car_body = car_body;
-        this.person = person;
-        this.door = door;
-        this.gearbox = gearbox;
-        this.bag = bag;
-        this.fuel = fuel;
-        this.rental_status = rental_status;
-    }
+private Long ID;
+private String car_name;
+private car_body_type car_body;
+private Long person;
+private Long door;
+private gearbox_type gearbox;
+private Long bag;
+private fuel_type fuel;
+private String rental_status;
 
-    public Long getID() {
-        return ID;
-    }
+public Car() {
+}
 
-    public void setID(Long ID) {
-        this.ID = ID;
-    }
+public Car(Long ID, String car_name, car_body_type car_body, Long person, Long door, gearbox_type gearbox, Long bag, fuel_type fuel, String rental_status) {
+	this.ID = ID;
+	this.car_name = car_name;
+	this.car_body = car_body;
+	this.person = person;
+	this.door = door;
+	this.gearbox = gearbox;
+	this.bag = bag;
+	this.fuel = fuel;
+	this.rental_status = rental_status;
+}
 
-    public String getCar_name() {
-        return car_name;
-    }
+public Long getID() {
+	return ID;
+}
 
-    public void setCar_name(String car_name) {
-        this.car_name = car_name;
-    }
+public void setID(Long ID) {
+	this.ID = ID;
+}
 
-    public car_body_type getCar_body() {
-        return car_body;
-    }
+public String getCar_name() {
+	return car_name;
+}
 
-    public void setCar_body(car_body_type car_body) {
-        this.car_body = car_body;
-    }
+public void setCar_name(String car_name) {
+	this.car_name = car_name;
+}
 
-    public Long getPerson() {
-        return person;
-    }
+public car_body_type getCar_body() {
+	return car_body;
+}
 
-    public void setPerson(Long person) {
-        this.person = person;
-    }
+public void setCar_body(car_body_type car_body) {
+	this.car_body = car_body;
+}
 
-    public Long getDoor() {
-        return door;
-    }
+public Long getPerson() {
+	return person;
+}
 
-    public void setDoor(Long door) {
-        this.door = door;
-    }
+public void setPerson(Long person) {
+	this.person = person;
+}
 
-    public gearbox_type getGearbox() {
-        return gearbox;
-    }
+public Long getDoor() {
+	return door;
+}
 
-    public void setGearbox(gearbox_type gearbox) {
-        this.gearbox = gearbox;
-    }
+public void setDoor(Long door) {
+	this.door = door;
+}
 
-    public Long getBag() {
-        return bag;
-    }
+public gearbox_type getGearbox() {
+	return gearbox;
+}
 
-    public void setBag(Long bag) {
-        this.bag = bag;
-    }
+public void setGearbox(gearbox_type gearbox) {
+	this.gearbox = gearbox;
+}
 
-    public fuel_type getFuel() {
-        return fuel;
-    }
+public Long getBag() {
+	return bag;
+}
 
-    public void setFuel(fuel_type fuel) {
-        this.fuel = fuel;
-    }
+public void setBag(Long bag) {
+	this.bag = bag;
+}
 
-    public String getRental_status() {
-        return rental_status;
-    }
+public fuel_type getFuel() {
+	return fuel;
+}
 
-    public void setRental_status(String rental_status) {
-        this.rental_status = rental_status;
-    }
+public void setFuel(fuel_type fuel) {
+	this.fuel = fuel;
+}
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Car car = (Car) o;
+public String getRental_status() {
+	return rental_status;
+}
 
-        if (!Objects.equals(ID, car.ID)) {
-            return false;
-        }
-        if (!Objects.equals(car_name, car.car_name)) {
-            return false;
-        }
+public void setRental_status(String rental_status) {
+	this.rental_status = rental_status;
+}
 
-        if (!Objects.equals(person, car.person)) {
-            return false;
-        }
+@Override
+public boolean equals(Object o) {
+	if (this == o) return true;
+	if (o == null || getClass() != o.getClass()) return false;
+	Car car = (Car) o;
+	
+	if (!Objects.equals(ID, car.ID)) {
+		return false;
+	}
+	if (!Objects.equals(car_name, car.car_name)) {
+		return false;
+	}
+	
+	if (!Objects.equals(person, car.person)) {
+		return false;
+	}
+	
+	if (!Objects.equals(door, car.door)) {
+		return false;
+	}
+	
+	if (!Objects.equals(bag, car.bag)) {
+		return false;
+	}
+	
+	if (!Objects.equals(rental_status, car.rental_status)) {
+		return false;
+	}
+	
+	return car_body == car.car_body && gearbox == car.gearbox && fuel == car.fuel;
+	
+}
 
-        if (!Objects.equals(door, car.door)) {
-            return false;
-        }
+@Override
+public int hashCode() {
+	int result = ID != null ? ID.hashCode() : 0;
+	result = 31 * result + (car_name != null ? car_name.hashCode() : 0);
+	result = 31 * result + (car_body != null ? car_body.hashCode() : 0);
+	result = 31 * result + (gearbox != null ? gearbox.hashCode() : 0);
+	result = 31 * result + (fuel != null ? fuel.hashCode() : 0);
+	result = 31 * result + (person != null ? person.hashCode() : 0);
+	result = 31 * result + (door != null ? door.hashCode() : 0);
+	result = 31 * result + (bag != null ? bag.hashCode() : 0);
+	result = 31 * result + (rental_status != null ? rental_status.hashCode() : 0);
+	return result;
+}
 
-        if (!Objects.equals(bag, car.bag)) {
-            return false;
-        }
-
-        if (!Objects.equals(rental_status, car.rental_status)) {
-            return false;
-        }
-        
-        return car_body == car.car_body && gearbox == car.gearbox && fuel == car.fuel;
-
-    }
-
-    @Override
-    public int hashCode() {
-        int result = ID != null ? ID.hashCode() : 0;
-        result = 31 * result + (car_name != null ? car_name.hashCode() : 0);
-        result = 31 * result + (car_body != null ? car_body.hashCode() : 0);
-        result = 31 * result + (gearbox != null ? gearbox.hashCode() : 0);
-        result = 31 * result + (fuel != null ? fuel.hashCode() : 0);
-        result = 31 * result + (person != null ? person.hashCode() : 0);
-        result = 31 * result + (door != null ? door.hashCode() : 0);
-        result = 31 * result + (bag != null ? bag.hashCode() : 0);
-        result = 31 * result + (rental_status != null ? rental_status.hashCode() : 0);
-        return result;
-    }
-
-    @Override
-    public String toString() {
-        return "Car{" +
-                "ID=" + ID +
-                ", car_name='" + car_name + '\'' +
-                ", car_body=" + car_body +
-                ", person=" + person +
-                ", door=" + door +
-                ", gearbox=" + gearbox +
-                ", bag=" + bag +
-                ", fuel=" + fuel +
-                ", rental_status=" + rental_status +
-                '}';
-    }
+@Override
+public String toString() {
+	return "Car{" +
+		"ID=" + ID +
+		", car_name='" + car_name + '\'' +
+		", car_body=" + car_body +
+		", person=" + person +
+		", door=" + door +
+		", gearbox=" + gearbox +
+		", bag=" + bag +
+		", fuel=" + fuel +
+		", rental_status=" + rental_status +
+		'}';
+}
 }
