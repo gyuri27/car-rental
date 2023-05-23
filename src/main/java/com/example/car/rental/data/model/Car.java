@@ -2,6 +2,10 @@ package com.example.car.rental.data.model;
 
 import java.util.Objects;
 
+
+/**
+ * A class representing a Car.
+ */
 public class Car {
 
 private Long ID;
@@ -14,9 +18,25 @@ private Long bag;
 private fuel_type fuel;
 private String rental_status;
 
+/**
+ * Default constructor for the Car class.
+ */
 public Car() {
 }
 
+/**
+ * Parameterized constructor for the Car class.
+ *
+ * @param ID             the ID of the car
+ * @param car_name       the name of the car
+ * @param car_body       the body type of the car
+ * @param person         the number of persons the car can accommodate
+ * @param door           the number of doors the car has
+ * @param gearbox        the type of gearbox of the car
+ * @param bag            the capacity of the car's trunk in liters
+ * @param fuel           the type of fuel used by the car
+ * @param rental_status  the rental status of the car
+ */
 public Car(Long ID, String car_name, car_body_type car_body, Long person, Long door, gearbox_type gearbox, Long bag, fuel_type fuel, String rental_status) {
 	this.ID = ID;
 	this.car_name = car_name;
@@ -29,78 +49,174 @@ public Car(Long ID, String car_name, car_body_type car_body, Long person, Long d
 	this.rental_status = rental_status;
 }
 
+/**
+ * Returns the ID of the car.
+ *
+ * @return the ID of the car
+ */
 public Long getID() {
 	return ID;
 }
 
+/**
+ * Sets the ID of the car.
+ *
+ * @param ID the ID of the car
+ */
 public void setID(Long ID) {
 	this.ID = ID;
 }
 
+/**
+ * Returns the name of the car.
+ *
+ * @return the name of the car
+ */
 public String getCar_name() {
 	return car_name;
 }
 
+/**
+ * Sets the name of the car.
+ *
+ * @param car_name the name of the car
+ */
 public void setCar_name(String car_name) {
 	this.car_name = car_name;
 }
 
+/**
+ * Returns the body type of the car.
+ *
+ * @return the body type of the car
+ */
 public car_body_type getCar_body() {
 	return car_body;
 }
 
+/**
+ * Sets the body type of the car.
+ *
+ * @param car_body the body type of the car
+ */
 public void setCar_body(car_body_type car_body) {
 	this.car_body = car_body;
 }
 
+/**
+ * Returns the number of persons the car can accommodate.
+ *
+ * @return the number of persons the car can accommodate
+ */
 public Long getPerson() {
 	return person;
 }
 
+/**
+ * Sets the number of persons the car can accommodate.
+ *
+ * @param person the number of persons the car can accommodate
+ */
 public void setPerson(Long person) {
 	this.person = person;
 }
 
+/**
+ * Returns the number of doors the car has.
+ *
+ * @return the number of doors the car has
+ */
 public Long getDoor() {
 	return door;
 }
 
+/**
+ * Sets the number of doors the car has.
+ *
+ * @param door the number of doors the car has
+ */
 public void setDoor(Long door) {
 	this.door = door;
 }
 
+/**
+ * Returns the type of gearbox of the car.
+ *
+ * @return the type of gearbox of the car
+ */
 public gearbox_type getGearbox() {
 	return gearbox;
 }
 
+/**
+ * Sets the type of gearbox of the car.
+ *
+ * @param gearbox the type of gearbox of the car
+ */
 public void setGearbox(gearbox_type gearbox) {
 	this.gearbox = gearbox;
 }
 
+/**
+ * Returns the capacity of the car's trunk in liters.
+ *
+ * @return the capacity of the car's trunk in liters
+ */
 public Long getBag() {
 	return bag;
 }
 
+/**
+ * Sets the capacity of the car's trunk in liters.
+ *
+ * @param bag the capacity of the car's trunk in liters
+ */
 public void setBag(Long bag) {
 	this.bag = bag;
 }
 
+/**
+ * Returns the type of fuel used by the car.
+ *
+ * @return the type of fuel used by the car
+ */
 public fuel_type getFuel() {
 	return fuel;
 }
 
+/**
+ * Sets the type of fuel used by the car.
+ *
+ * @param fuel the type of fuel used by the car
+ */
 public void setFuel(fuel_type fuel) {
 	this.fuel = fuel;
 }
 
+/**
+ * Returns the rental status of the car.
+ *
+ * @return the rental status of the car
+ */
 public String getRental_status() {
 	return rental_status;
 }
 
+/**
+ * Sets the rental status of the car.
+ *
+ * @param rental_status the rental status of the car
+ */
 public void setRental_status(String rental_status) {
 	this.rental_status = rental_status;
 }
 
+/**
+ * Checks if this car is equal to another object.
+ *
+ * @param o the object to compare to
+ * @return true if the cars are equal, false otherwise
+ */
 @Override
 public boolean equals(Object o) {
 	if (this == o) return true;
@@ -134,6 +250,11 @@ public boolean equals(Object o) {
 	
 }
 
+/**
+ * Returns the hash code of the car.
+ *
+ * @return the hash code of the car
+ */
 @Override
 public int hashCode() {
 	int result = ID != null ? ID.hashCode() : 0;
@@ -148,6 +269,11 @@ public int hashCode() {
 	return result;
 }
 
+/**
+ * Returns a string representation of the car.
+ *
+ * @return a string representation of the car
+ */
 @Override
 public String toString() {
 	return "Car{" +

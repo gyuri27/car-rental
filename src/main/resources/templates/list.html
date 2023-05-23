@@ -1,135 +1,132 @@
-<html lang="en"
-      xmlns:th="http://www.thymeleaf.org/"
-      xmlns:sec="http://www.w3.org/1999/xhtml%22%3E">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" xmlns:sec="http://www.w3.org/1999/xhtml%22%3E">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>Kocsik listája</title>
-    <style>
-        .container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 20px;
-}
+  <title>Kocsik listája</title>
+  <style>
+    body {
+      background-color: gray;
+    }
 
-h3 {
-  font-size: 24px;
-  font-weight: bold;
-}
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 20px;
+    }
 
-.btn {
-  display: inline-block;
-  padding: 8px 16px;
-  margin-bottom: 10px;
-  font-size: 14px;
-  font-weight: bold;
-  text-decoration: none;
-  color: #fff;
-  background-color: #007bff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
+    h3 {
+      font-size: 24px;
+      font-weight: bold;
+    }
 
-.btn:hover {
-  background-color: #0069d9;
-}
+    .btn {
+      display: inline-block;
+      padding: 8px 16px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      font-weight: bold;
+      text-decoration: none;
+      background-color: #007bff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      color: white;
+    }
 
-.table {
-  width: 100%;
-  margin-bottom: 20px;
-  border-collapse: collapse;
-}
+    .btn:hover {
+      background-color: #0069d9;
+    }
 
-.table th,
-.table td {
-  padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid #dee2e6;
-}
+    .table {
+      width: 100%;
+      margin-bottom: 20px;
+      border-collapse: collapse;
+    }
 
-.table th {
-  font-weight: bold;
-}
+    .table th,
+    .table td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid;
+    }
 
-.table caption {
-  margin-bottom: 10px;
-  font-weight: bold;
-}
+    .table th {
+      font-weight: bold;
+    }
 
-.btn-warning {
-  background-color: #ffc107;
-}
+    .table caption {
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
 
-.btn-warning:hover {
-  background-color: #ffca2c;
-}
+    .btn-warning {
+      background-color: #ffc107;
+    }
 
-.btn-danger {
-  background-color: #dc3545;
-}
+    .btn-warning:hover {
+      background-color: #ffca2c;
+    }
 
-.btn-danger:hover {
-  background-color: #c82333;
-}
+    .btn-danger {
+      background-color: #dc3545;
+    }
 
-.pt-5 {
-  padding-top: 40px;
-}
+    .btn-danger:hover {
+      background-color: #c82333;
+    }
 
-    </style>
+    .pt-5 {
+      padding-top: 40px;
+      
+    }
+  </style>
 </head>
+
 <body>
 
-<div class="container">
+  <div class="container">
 
     <h3 class="pt-5">Kocsik listája</h3>
 
-    <a th:href="@{'/car-rental/create'}"
-       type="button"
-       class="btn">Új hozzáadása</a>
+    <a th:href="@{'/car-rental/create'}" type="button" class="btn">Új hozzáadása</a>
 
     <table class="table table-striped pt-5">
-        <caption>Kocsik listája</caption>
-        <thread>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Kocsi_tipus</th>
-                <th scope="col">Kialakítás</th>
-                <th scope="col">Fő</th>
-                <th scope="col">Ajtók_száma</th>
-                <th scope="col">váltó_tipus</th>
-                <th scope="col">Bőrödnök_száma</th>
-                <th scope="col">üzemanyag</th>
-                <th scope="col">Kikölcsönzött</th>
-            </tr>
-        </thread>
-        <tbody>
-        <tr th:each="car: ${cars}">
-            <th scope="row"
-                th:text="${car.ID}"></th>
-            <td th:text="${car.car_name}"></td>
-            <td th:text="${car.car_body}"></td>
-            <td th:text="${car.person}"></td>
-            <td th:text="${car.door}"></td>
-            <td th:text="${car.gearbox}"></td>
-            <td th:text="${car.bag}"></td>
-            <td th:text="${car.fuel}"></td>
-            <td th:text="${car.rental_status}"></td>
-            <td>
-                <a th:href="@{'/car-rental/' + ${car.ID}}"
-                   type="button"
-                   class="btn btn-warning">Szerkesztés</a>
-                <a th:href="@{'/car-rental/' + ${car.ID} + '/delete'}"
-                   type="button"
-                   class="btn btn-danger">Törlés</a>
-            </td>
+      <caption>Kocsik listája</caption>
+      <thread>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Kocsi_tipus</th>
+          <th scope="col">Kialakítás</th>
+          <th scope="col">Fő</th>
+          <th scope="col">Ajtók_száma</th>
+          <th scope="col">váltó_tipus</th>
+          <th scope="col">Bőrödnök_száma</th>
+          <th scope="col">üzemanyag</th>
+          <th scope="col">Kikölcsönzött</th>
         </tr>
-        </tbody>
+      </thread>
+      <tbody>
+        <tr th:each="car: ${cars}">
+          <th scope="row" th:text="${car.ID}"></th>
+          <td th:text="${car.car_name}"></td>
+          <td th:text="${car.car_body}"></td>
+          <td th:text="${car.person}"></td>
+          <td th:text="${car.door}"></td>
+          <td th:text="${car.gearbox}"></td>
+          <td th:text="${car.bag}"></td>
+          <td th:text="${car.fuel}"></td>
+          <td th:text="${car.rental_status}"></td>
+          <td>
+            <a th:href="@{'/car-rental/' + ${car.ID}}" type="button" class="btn btn-warning">Szerkesztés</a>
+            <a th:href="@{'/car-rental/' + ${car.ID} + '/delete'}" type="button" class="btn btn-danger">Törlés</a>
+          </td>
+        </tr>
+      </tbody>
     </table>
-</div>
+  </div>
 
 </body>
+
 </html>

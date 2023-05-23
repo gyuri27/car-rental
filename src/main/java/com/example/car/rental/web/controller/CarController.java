@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+/**
+ * Controller class for handling car rental operations.
+ */
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/car-rental")
@@ -23,6 +26,13 @@ public class CarController {
 
 private final CarService carService;
 
+/**
+ * Retrieves a car by its ID and displays it on the edit page.
+ *
+ * @param model the Model object for adding attributes
+ * @param ID    the ID of the car to retrieve
+ * @return the view name for the edit page if the car is found, otherwise the view name for the notFound page
+ */
 @GetMapping("/{ID}")
 public String getCarByid(Model model, @PathVariable Long ID) {
 	Optional<Car> optionalCar = carService.retrieveCarById(ID);
@@ -40,6 +50,12 @@ public String getCarByid(Model model, @PathVariable Long ID) {
 	);
 }
 
+/**
+ * Retrieves all cars and displays them on the list page.
+ *
+ * @param model the Model object for adding attributes
+ * @return the view name for the list page
+ */
 @GetMapping
 public String getAllCar(Model model) {
 	List<Car> allCar = carService.retrieveAllCars();
@@ -47,11 +63,23 @@ public String getAllCar(Model model) {
 	return "list";
 }
 
+/**
+ * Displays the create car page.
+ *
+ * @return the view name for the create page
+ */
 @GetMapping("/create")
 public String createCar() {
 	return "create";
 }
 
+/**
+ * Creates a new car and displays it on the edit page.
+ *
+ * @param model the Model object for adding attributes
+ * @param car   the Car object to create
+ * @return the view name for the edit page
+ */
 @PostMapping("/create")
 public String createCar(Model model, Car car) {
 	Car newCar = carService.createCar_rental(car);
@@ -59,6 +87,13 @@ public String createCar(Model model, Car car) {
 	return "edit";
 }
 
+/**
+ * Updates a car and displays it on the edit page.
+ *
+ * @param model the Model object for adding attributes
+ * @param car   the Car object to update
+ * @return the view name for the edit page
+ */
 @PostMapping(value = "/update", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
 public String updateCar(Model model, Car car) {
 	Car updatedCar = carService.updateCar(car);
@@ -66,6 +101,13 @@ public String updateCar(Model model, Car car) {
 	return "edit";
 }
 
+/**
+ * Deletes a car by its ID and displays the updated car list on the list page.
+ *
+ * @param model the Model object for adding attributes
+ * @param ID    the ID of the car to delete
+ * @return the view name for the list page
+ */
 @GetMapping("/{ID}/delete")
 public String deleteCarById(Model model, @PathVariable Long ID) {
 	carService.deleteCarById(ID);
