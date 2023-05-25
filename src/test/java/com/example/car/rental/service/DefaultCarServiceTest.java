@@ -62,17 +62,6 @@ void CarByID()
 }
 
 @Test
-void Allcar()
-{
-    given(carLongRepo.getAll()).willReturn(List.of(car));
-    
-    final List<Car> actual = carService.retrieveAllCars();
-    
-    assertThat(actual, equalTo(List.of(car)));
-    verify(carLongRepo).getAll();
-    verifyNoMoreInteractions(carLongRepo);
-}
-@Test
 void updateCar()
 {
     given(carLongRepo.update(car)).willReturn(car);
@@ -81,6 +70,18 @@ void updateCar()
     
     assertThat(actual, equalTo(car));
     verify(carLongRepo).update(car);
+    verifyNoMoreInteractions(carLongRepo);
+}
+
+@Test
+void Allcar()
+{
+    given(carLongRepo.getAll()).willReturn(List.of(car));
+    
+    final List<Car> actual = carService.retrieveAllCars();
+    
+    assertThat(actual, equalTo(List.of(car)));
+    verify(carLongRepo).getAll();
     verifyNoMoreInteractions(carLongRepo);
 }
 }

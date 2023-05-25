@@ -37,6 +37,15 @@ public Car save(Car item) {
 	return Storage.get(id);
 }
 
+/**
+ * Retrieves all Car objects from the storage.
+ *
+ * @return a List containing all the Car objects
+ */
+@Override
+public List<Car> getAll() {
+	return Storage.values().stream().toList();
+}
 
 /**
  * Updates a Car object in the storage.
@@ -50,15 +59,6 @@ public Car update(Car item) {
 	Long id = item.getID();
 	Storage.put(id, item);
 	return Storage.get(id);
-}
-/**
- * Retrieves all Car objects from the storage.
- *
- * @return a List containing all the Car objects
- */
-@Override
-public List<Car> getAll() {
-	return Storage.values().stream().toList();
 }
 
 /**
