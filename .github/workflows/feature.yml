@@ -5,7 +5,11 @@ name: Feature workflow
 
 on:
   push:
-    branches: [ feature ]
+    branches:
+      - 'feature/**'
+      - 'bugfix/**'
+      - 'hotfix/**'
+      - 'release/**'
 
 jobs:
   build:
