@@ -61,6 +61,16 @@ public List<Car> retrieveAllCars() {
 }
 
 /**
+ * Deletes a car rental by its ID from the repository.
+ *
+ * @param id the ID of the car rental to delete
+ */
+@Override
+public void deleteCarById(Long id) {
+    repository.deleteById(id);
+}
+
+/**
  * Updates a car rental by saving the updated Car object to the repository.
  *
  * @param car the updated Car object
@@ -69,15 +79,5 @@ public List<Car> retrieveAllCars() {
 @Override
 public Car updateCar(Car car) {
     return repository.update(car);
-}
-
-/**
- * Deletes a car rental by its ID from the repository.
- *
- * @param id the ID of the car rental to delete
- */
-@Override
-public void deleteCarById(Long id) {
-    repository.deleteById(id);
 }
 }
