@@ -32,11 +32,6 @@ private Repo<Car, Long> carLongRepo;
 
 private CarService carService;
 
-@BeforeEach
-void serUp(){
-    MockitoAnnotations.openMocks(this);
-    carService = new DefaultCarService(carLongRepo);
-}
 
 @Test
 void createCars()
@@ -49,7 +44,11 @@ void createCars()
     verify(carLongRepo).save(car);
     verifyNoMoreInteractions(carLongRepo);
 }
-
+@BeforeEach
+void serUp(){
+    MockitoAnnotations.openMocks(this);
+    carService = new DefaultCarService(carLongRepo);
+}
 @Test
 void CarByID()
 {
