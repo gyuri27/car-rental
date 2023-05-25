@@ -3,7 +3,9 @@
 
 name: Main workflow
 
-on: [master]
+on:
+  push:
+    branches: [ master ]
 
 jobs:
   build:
