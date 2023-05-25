@@ -38,17 +38,6 @@ public Car save(Car item) {
 }
 
 /**
- * Retrieves a Car object by its ID from the storage.
- *
- * @param id the ID of the Car object to retrieve
- * @return an Optional containing the retrieved Car object, or an empty Optional if not found
- */
-@Override
-public Optional<Car> getById(Long id) {
-	return Optional.ofNullable(Storage.get(id));
-}
-
-/**
  * Retrieves all Car objects from the storage.
  *
  * @return a List containing all the Car objects
@@ -70,6 +59,17 @@ public Car update(Car item) {
 	Long id = item.getID();
 	Storage.put(id, item);
 	return Storage.get(id);
+}
+
+/**
+ * Retrieves a Car object by its ID from the storage.
+ *
+ * @param id the ID of the Car object to retrieve
+ * @return an Optional containing the retrieved Car object, or an empty Optional if not found
+ */
+@Override
+public Optional<Car> getById(Long id) {
+	return Optional.ofNullable(Storage.get(id));
 }
 
 /**
